@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2>The Build (and problems)</h2>
+<h3>99 little bugs in the code</h3>
+<h3>99 little bugs</h3>
+<h3>Take one down</h3>
+<h3>Patch it around</h3>
+<h3>173 little bugs in the code</h3>
+
+<p>It all started with trying to get the data..</p>
+
+<p>In order to demonstrate ETL skills, Chris started by looking for a way to ingest the NYC Restaurant Health Scores directly from the source.  First he attempted to use an OData read.  Unfortunately, the OData feed was not linked properly and could not be read.  So, then he installed the SODA Api for Socrata data sets.  He set up the service only to discover the data set there was not available either.  Next he tried to read the XML feed, but again, the file could not be read.</p>
+<img src="~/Images/XMLError.PNG" />
+<p>So, after all that, he looked to read the JSON feed into SQL Server and onvert it to RDBM type data set.  That turned out to be useless as a live feed, because parsing JSON into SQL Server requires the file to be on he machine.</p>
+
+<p>After that, he downloaded the csv file, and attempted to set up an SSIS package.  All was finally moving smoothly utnil data conversion errors started to pop up.  Chris then had to convert the original csv to conform to the data types being used, then load into the SSIS package.  At this point, it was discovered that the data store being used does not permit SSIS packages to be used.</p>
+<img src="~/Images/SimpleDataFlow.PNG" />
+<img src="~/Images/PackageExecution.PNG" />
+<p>It was already a frustrating build out, and things hadn't even gotten started.  The next move was to use the SQL Server Import/Export Wizard.  This was a last resort, as Chris wanted to demonstrate his ability to pipeline data in a meaningful way.</p>
+<img src="~/Images/PackageExecution.PNG" />
+<p>With the data finally loaded, it was time to start the build.  Chris wanted to show off the latest and greatest .NET Core stack </p>
+
+<p>Unfortunately, Microsoft had some different ideas.  It all started with assemblies not matching.  the DotNetCore assembly was calling for version 1.1.0, but many of it's dependencies needed assembly version 1.0.1. </p>
+
+<p>And then came the big bomb.  For some reason, when using .NET Core, the app needs to reference assemblies on the local machine.  This started to cause fatal errors as assemblies were being referenced in the wrong location, and often referenced the wrong version</p>
+
+<p>At this point, Chris decided to use an older framework that is known to work. It took a while and a lot of bugs to work through, but he finally did it.  And you're reading it now.</p>

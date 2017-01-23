@@ -1,0 +1,93 @@
+﻿@model IEnumerable<NoAccounts.Models.RestaurantGrade>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Dba)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Boro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Building)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CuisineType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InspectionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ViolationCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dba)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Boro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Building)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CuisineType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InspectionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ViolationCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grade)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RestaurantGradeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RestaurantGradeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RestaurantGradeID })
+        </td>
+    </tr>
+}
+
+</table>

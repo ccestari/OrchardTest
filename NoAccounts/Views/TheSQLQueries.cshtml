@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "TheSQLQueries";
+}
+
+<h2>The SQL Queries</h2>
+<p>The first SQL query is a rather simple one.</p>
+<code>
+    SELECT *
+    FROM
+    RestaurantGrades
+    </code>
+<p>It gets a little more interesting when we start looking for only Thai restaurants that meet the Grade Criteria.</p>
+<code>
+    SELECT *
+    FROM
+    RestaurantGrades
+    WHERE
+    CuisineType = 'Thai'
+    AND
+    Grade IN ('A', 'B')
+</code>
+<p>Finding what type of restaurant had the most A and B grades added another layer of dificulty to it</p>
+<code>
+    SELECT
+    CuisineType,
+    COUNT(CuisineType)
+    FROM
+    RestaurantGrades
+    WHERE
+    Grade IN ('A', 'B')
+    GROUP BY CuisineType
+</code>
+<p>Oddly though, all this can be done without using SQL.  This app takes advantage of LINK to SQL and has it's own code.</p>
+<code>return View(db.RestaurantGrades.ToList().ToPagedList(pageNumber,pageSize));</code>
+<code>return View(db.RestaurantGrades.ToList().Where(cuisine => cuisine.CuisineType == "Thai").Where(grad => grad.Grade == "A" || grad.Grade == "B"));</code>
+<code>return View(db.RestaurantGrades.ToList().Where(grad => grad.Grade == "A" || grad.Grade == "B").GroupBy(ct => ct.CuisineType).Count());</code>

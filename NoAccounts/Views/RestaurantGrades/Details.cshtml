@@ -1,0 +1,106 @@
+﻿@model NoAccounts.Models.RestaurantGrade
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RestaurantGrade</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Dba)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dba)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Boro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Boro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Building)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Building)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CuisineType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CuisineType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InspectionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InspectionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ViolationCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViolationCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RestaurantGradeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
